@@ -34,9 +34,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 		DAOUser user = userDao.findByUsername(username);
 		if (user != null) {
 			roles = Arrays.asList(new SimpleGrantedAuthority(user.getRole()));
+			//return new User(user.getUsername(), user.getPassword(), roles);
 			return new User(user.getUsername(), user.getPassword(), roles);
 		}
-		throw new UsernameNotFoundException("User not found with the name " + username);	}
+		throw new UsernameNotFoundException("User not found with the name " + username);	
+	}
 	
 	public DAOUser save(UserDTO user) {
 		DAOUser newUser = new DAOUser();
