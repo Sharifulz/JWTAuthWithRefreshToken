@@ -29,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		List<SimpleGrantedAuthority> roles = null;
-		
+		System.out.println("-----------------------CALLED---------------------");
 			
 		DAOUser user = userDao.findByUsername(username);
 		if (user != null) {
